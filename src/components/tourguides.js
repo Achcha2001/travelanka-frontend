@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './tourguides.css';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 function TourGuideList() {
   const [tourGuides, setTourGuides] = useState([]);
@@ -38,6 +39,18 @@ function TourGuideList() {
       console.error('Error fetching tour guides:', error);
     }
   };
+  const displayImage = async (imageRef) => {
+    const storage = getStorage();
+    const storageRef = ref(storage, imageRef);
+
+    try {
+      const imageUrl = await getDownloadURL(storageRef);
+      return <img src={imageUrl} alt="Tour Guide" />;
+    } catch (error) {
+      console.error('Error fetching image:', error);
+      return null;
+    }
+  }
 
   return (
     <div>
@@ -70,7 +83,7 @@ function TourGuideList() {
             <p>Contact Number: {tourGuide.contactnumber}</p>
             <p>Guide Type: {tourGuide.category}</p>
             {tourGuide.image.map((image, index) => (
-              <img key={index} src={image} alt={`Image ${index + 1}`} />
+              <div key={index}>{displayImage(image)}</div>
             ))}
           </div>
         ))}

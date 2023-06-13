@@ -35,9 +35,10 @@ function Signup() {
           password,
         })
         .then((response) => {
-          // Handle the response from the backend
-          if (response.data.success) {
-            // Signup successful
+      
+          
+          
+        
             console.log('signup successful')
             alert('Welcome to Travelanka');
             // Clear input fields
@@ -48,11 +49,7 @@ function Signup() {
             setConfirmPassword('');
             // Redirect to the homepage or any other authenticated page
             navigate('/');
-          } else {
-            // Signup failed
-            // You can handle the specific error messages returned from the backend
-            setErrorMessage(response.data.message);
-          }
+          
         })
         .catch((error) => {
           // Handle any errors that occur during the request
