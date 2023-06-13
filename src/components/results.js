@@ -166,6 +166,7 @@ function SearchResultsPage() {
           </p>
         )}
       </div>
+      <div className='middle'>
       <div className="tab-container">
         <button
           className={`tab ${activeTab === 'accommodation' ? 'active' : ''}`}
@@ -180,8 +181,10 @@ function SearchResultsPage() {
           Transportation
         </button>
       </div>
+      
       <h2>Search Results</h2>
-      <p>Query: {query}</p>
+      <p>Location: {query}</p>
+      
 
       {activeTab === 'accommodation' ? (
         accommodationResults.length > 0 ? (
@@ -198,7 +201,7 @@ function SearchResultsPage() {
             ))}
           </div>
         ) : (
-          <p>No accommodation results found.</p>
+          <p><h1>No accommodation results found.</h1></p>
         )
       ) : (
         <div className="grid-cont">
@@ -213,6 +216,7 @@ function SearchResultsPage() {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }
