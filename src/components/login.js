@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './login.css';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 function LoginPage() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -19,23 +19,40 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    if (name.valueOf() === '' || password.valueOf() === '') {
-        setErrorMessage('Please fill in all fields');
-        
-        
-      } else {
-        setErrorMessage('');
-     
-     console.log('Logged in:', name, password);
-     alert('welcome',name);
-     // Clear input fields
-     setName('');
-     setPassword('');
-     //re-direct to the homepage
-     navigate("/");
-   }
- }
-  
+    if (name.trim() === '' || password.trim() === '') {
+      setErrorMessage('Please fill in all fields');
+    } else {
+      setErrorMessage('');
+
+      // Send login data to the backend for validation
+      axios
+        .post('http://localhost:3000/login/add', {
+          name,
+          password,
+        })
+        .then((response) => {
+          // Check if the login was successful
+          if (response.data.success) {
+            // Login successful
+            console.log('Login successful');
+            alert('Welcome, ' + name);
+            // Clear input fields
+            setName('');
+            setPassword('');
+            // Redirect to the homepage or any other authenticated page
+            navigate('/');
+          } else {
+            // Login failed
+            setErrorMessage('Invalid username or password');
+          }
+        })
+        .catch((error) => {
+          // Handle any errors that occur during the request
+          console.error('Error:', error);
+          setErrorMessage('An error occurred while logging in');
+        });
+    }
+  };
 
   const handleSignup = () => {
     // Redirect to signup page or perform signup logic here
@@ -46,18 +63,40 @@ function LoginPage() {
     <div className="login-page">
       <h2>Login</h2>
       <div>
-       
         <label htmlFor="name">Name:</label>
-        <input className='red'  type="text" id="name" value={name} onChange={handleNameChange} />
+        <input
+          className="red"
+          type="text"
+          id="name-login"
+          value={name}
+          onChange={handleNameChange}
+        />
       </div>
       <div>
         <label htmlFor="password">Password:</label>
-        <input className='red' type="password" id="password" value={password} onChange={handlePasswordChange} />
+        <input
+          className="red"
+          type="password"
+          id="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
       </div>
-      <label className='err-msg'>{errorMessage}</label>
-      <button onClick={handleLogin}> <a className='sb' href='#' >Login </a></button>
-      <p className='signpara'>Dont you have an account?<br/> Click signup </p>
-      <button  onClick={handleSignup}><a className='sb' href='/signup' > Signup </a></button>
+      <label className="err-msg">{errorMessage}</label>
+      <button onClick={handleLogin}>
+        <a className="sb" href="#">
+          Login
+        </a>
+      </button>
+      <p className="signpara">
+        Don't you have an account?
+        <br /> Click signup
+      </p>
+      <button onClick={handleSignup}>
+        <a className="sb" href="/signup">
+          Signup
+        </a>
+      </button>
     </div>
   );
 }

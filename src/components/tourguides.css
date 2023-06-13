@@ -1,0 +1,87 @@
+.tour-guide1 {
+    display: grid;
+    align-items: center;
+    margin-top: 20px;
+    outline: invert;
+    margin-bottom: 20px;
+    background-image: linear-gradient(white, rgb(70, 70, 70));
+    position: relative;
+  }
+  
+  .tour-guide1:before {
+    content: "img";
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+  }
+  
+  .video-background1 {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+  }
+  
+  .video-background1 video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #white {
+    margin-top: 40px;
+    position: relative;
+    letter-spacing: normal;
+    word-spacing: normal;
+    padding: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .tour-guide1 h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .tour-guide1 p {
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    background: linear-gradient(black,white);
+    margin-left: 20%;
+  }
+  
+  .tour-guide1 img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 10px;
+    
+  }
+  
+  #tour-p1 {
+    margin-top: 20%;
+  }
+  
+  #tour-p1 p {
+    background: linear-gradient(rgba(0, 0, 0, 0.521), rgba(128, 128, 128, 0.488));
+  }
+  
+  .guides1 {
+    font-size: 24;
+    font-weight: bold;
+    font-family: cursive;
+    background: white;
+    margin-top: 0%;
+    margin-bottom: -20px;
+  }
+  

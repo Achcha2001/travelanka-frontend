@@ -1,70 +1,94 @@
 import React, { useState } from 'react';
 import './signup.css';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-    
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [contactNumber, setContactNumber] = useState('');
+  const [contactnumber, setContactNumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [errorMessage1, setErrorMessage1] = useState('');
-  const [errorMessage2, setErrorMessage2] = useState('');
-const navigate=useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  function handleSignup(event) {
+  const handleSignup = (event) => {
     event.preventDefault();
-   if(name.valueOf()===''||email.valueOf()===''||contactNumber.indexOf()===''||password.valueOf()===''){
-    setErrorMessage1('Please fill in all fields');
-   }else if(password.valueOf()!==confirmPassword){
-  setErrorMessage2('Please re-enter the password')
-    
-   }
-   else{
+    if (
+      name.trim() === '' ||
+      email.trim() === '' ||
+      contactnumber.trim() === '' ||
+      password.trim() === ''
+    ) {
+      setErrorMessage('Please fill in all fields');
+    } else if (password !== confirmPassword) {
+      setErrorMessage('Please re-enter the password');
+    } else {
+      setErrorMessage('');
 
-    // Perform signup logic here
-    console.log('Signup:', name, email, contactNumber, password, confirmPassword);
-    alert(`Welcome to travelanka `);
-
-    // Clear input fields
-    setName('');
-    setEmail('');
-    setContactNumber('');
-    setPassword('');
-    setConfirmPassword('');
-    //re-derecting to home page
-    navigate("/");
-
-  }}
+      // Send signup data to the backend
+      axios
+        .post('http://localhost:3000/signuptourist/add', {
+          name,
+          email,
+          contactnumber,
+          password,
+        })
+        .then((response) => {
+          // Handle the response from the backend
+          if (response.data.success) {
+            // Signup successful
+            console.log('signup successful')
+            alert('Welcome to Travelanka');
+            // Clear input fields
+            setName('');
+            setEmail('');
+            setContactNumber('');
+            setPassword('');
+            setConfirmPassword('');
+            // Redirect to the homepage or any other authenticated page
+            navigate('/');
+          } else {
+            // Signup failed
+            // You can handle the specific error messages returned from the backend
+            setErrorMessage(response.data.message);
+          }
+        })
+        .catch((error) => {
+          // Handle any errors that occur during the request
+          console.error('Error:', error);
+          setErrorMessage('An error occurred while signing up');
+        });
+    }
+  };
 
   return (
     <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSignup}>
-        <label className='lbl'>
+        <label className="lbl">
           Name:
-          <input type="text" className='inp' value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" className="inp" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
-        <label className='lbl'>
+        <label className="lbl">
           Email:
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
-        <label className='lbl'>
+        <label className="lbl">
           Contact Number:
-          <input type="text" value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} />
+          <input type="text" value={contactnumber} onChange={(e) => setContactNumber(e.target.value)} />
         </label>
-        <label className='lbl'>
+        <label className="lbl">
           Password:
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <label className='lbl'>
+        <label className="lbl">
           Confirm Password:
           <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-          <label className='er-sign'>{errorMessage2}</label>
+
         </label>
-        <label className='er-sign'>{errorMessage1}</label>
-        <button type="submit"> Sign Up</button>
+        <label className="er-sign">{errorMessage}</label>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

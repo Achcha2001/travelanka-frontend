@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 30%;
+    padding-top: 10px;
+    margin-left: 30%;
+    padding: 20px;
+  }
+  
+  .card-element {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .pay-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pay-button:hover {
+    background-color: #0056b3;
+  }
+  #exp-cvv{
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+  }
+  #exp-cvv input{
+    width: 90px;
+  }
+  

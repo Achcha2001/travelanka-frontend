@@ -41,12 +41,20 @@
     border-radius: 10px;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
     
   }
   .form-container button:hover{
     background-color: black;
     color: white;
     transition: 1s ease-in-out;
+  }
+  #name{
+    min-width: 400px;
+    width: 700px;
+  }#subject{
+    min-width: 400px;
+    width: 700px;
   }
   @media screen and(max-width:850px) {
     .form-container{
@@ -59,4 +67,52 @@
     }
     
   }
+  
+@media screen and (max-width: 1300px) {
+  .form-container form {
+    width: 70%;
+  }
+  #name{
+    min-width: 400px;
+    width: 820px;
+  }#subject{
+    min-width: 400px;
+    width: 820px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .form-container form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .form-container form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .form-container {
+    margin: 4rem 2rem;
+  }
+  .form-container form {
+    padding-top: 2rem;
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .form-container form {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form-container form {
+    width: 100%;
+  }
+}
   
