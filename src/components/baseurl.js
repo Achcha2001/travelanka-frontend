@@ -1,2 +1,2 @@
-const baseURL = "https://travelanka-backend.onrender.com/";
+const baseURL = "https://travelanka-backend.onrender.com";
 export default baseURL;
