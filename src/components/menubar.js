@@ -15,7 +15,22 @@ function MenuBar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const [isSticky, setIsSticky] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   useEffect(() => {
     const fetchTemperature = async () => {
       try {
@@ -35,7 +50,7 @@ function MenuBar() {
   }, []);
 
   return (
-    <nav className="menu-bar">
+    <nav className={isSticky ? 'menu-bar sticky' : 'menu-bar'} >
       <div className="menu-logo">
         <img src="./images/logo.jpg" alt="Logo" />
       </div>

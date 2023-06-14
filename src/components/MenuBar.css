@@ -6,6 +6,10 @@
   color: white;
   height: 60px;
   padding: 20px;
+
+
+
+  transition: background-color 0.3s ease;
 }
 
 .menu-logo img {
@@ -224,4 +228,15 @@ select[name="category"] option {
   font-size: 16px;
   margin-right: 10px;
   color: #fff;
+}
+.menu-bar.sticky {
+  /* Styles for the sticky navigation bar */
+  /* Example styles: */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: rgb(20, 3, 145);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
