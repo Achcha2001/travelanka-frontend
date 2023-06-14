@@ -229,14 +229,3 @@ select[name="category"] option {
   margin-right: 10px;
   color: #fff;
 }
-.menu-bar.sticky {
-  /* Styles for the sticky navigation bar */
-  /* Example styles: */
-  position: fixed;
-  top: 0;
-  right: 5;
-  left: 5;
-  background-color: rgb(20, 3, 145);
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
