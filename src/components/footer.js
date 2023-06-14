@@ -10,11 +10,11 @@ function Footer() {
         </div>
         <div className="menu">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Tour Guide</a></li>
-            <li><a href="#">Site Maps</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/tourguides">Tour Guide</a></li>
+            <li><a href="/site-map">Site Maps</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
+            <li><a href="/aboutus">About Us</a></li>
           </ul>
         </div>
         <div className="terms">

@@ -1,18 +1,38 @@
-// import React from 'react';
-import './MenuBar.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './MenuBar.css';
 
 function MenuBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [temperature, setTemperature] = useState('');
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const fetchTemperature = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.openweathermap.org/data/2.5/weather?q=Colombo,lk&appid=d4368ee9082191872e73fb9d63f20f0e'
+        );
+        const data = response.data;
+        const kelvin = data.main.temp;
+        const celsius = kelvin - 273.15;
+        setTemperature(celsius.toFixed(1) + '°C');
+      } catch (error) {
+        console.error('Error fetching temperature:', error);
+      }
+    };
+
+    fetchTemperature();
+  }, []);
 
   return (
     <nav className="menu-bar">
@@ -45,6 +65,8 @@ function MenuBar() {
           </div>
         </li>
       </ul>
+
+      <span className="temperature">{temperature} </span>
 
       <button id="log-button"><a href="/login">Login/Sign-up</a></button>
     </nav>

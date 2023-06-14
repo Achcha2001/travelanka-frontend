@@ -120,3 +120,93 @@ width: 510px;
  button:hover{
    background-color: #2e0de6;
 }
+@media (max-width: 1300px) {
+  .container-a {
+    max-width: 480px;
+    padding: 15px;
+  }
+
+  .container-a input,
+  #address,
+  #description {
+    width: 100%;
+  }
+
+  #para1acc {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .dropdowns,
+  .contgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container-a {
+    max-width: 360px;
+  }
+
+  .container-a input,
+  #address,
+  #description {
+    font-size: 14px;
+  }
+
+  .acc-reg button[type='submit'] {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 750px) {
+  .container-a {
+    max-width: 280px;
+  }
+
+  .container-a input,
+  #address,
+  #description {
+    font-size: 12px;
+  }
+
+  .acc-reg button[type='submit'] {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-a {
+    max-width: 240px;
+  }
+
+  .container-a input,
+  #address,
+  #description {
+    font-size: 10px;
+  }
+
+  .acc-reg button[type='submit'] {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 363px) {
+  .container-a {
+    max-width: 320px;
+  }
+
+  .container-a input,
+  #address,
+  #description {
+    font-size: 14px;
+  }
+
+  .acc-reg button[type='submit'] {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
