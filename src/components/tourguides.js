@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './tourguides.css';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import baseURL from './baseurl';
 
 function TourGuideList() {
   const [tourGuides, setTourGuides] = useState([]);
@@ -33,7 +34,7 @@ function TourGuideList() {
 
   const fetchTourGuides = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/guide/get');
+      const response = await axios.get(`${baseURL}/guide/get`);
       setTourGuides(response.data);
     } catch (error) {
       console.error('Error fetching tour guides:', error);

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
+import baseURL from './baseurl';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDJq-SNfcd7XB-jFKrPXhI_ZYmkEJ1Uopw",
@@ -105,7 +106,7 @@ function AccommodationRegistrationForm() {
       formData.append('images', uploadedImageUrls.join(','));
 
       // Send the form data to the backend API
-      await axios.post('http://localhost:3000/accommodation/add', formData);
+      await axios.post(`${baseURL}/accommodation/add`, formData);
 
       // Reset form fields and display success message
       setFullName('');

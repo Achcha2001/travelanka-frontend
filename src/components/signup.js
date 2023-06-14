@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './signup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import baseURL from './baseurl';
 
 function Signup() {
   const [name, setName] = useState('');
@@ -28,7 +29,7 @@ function Signup() {
 
       // Send signup data to the backend
       axios
-        .post('http://localhost:3000/signuptourist/add', {
+        .post(`${baseURL}/signuptourist/add`, {
           name,
           email,
           contactnumber,

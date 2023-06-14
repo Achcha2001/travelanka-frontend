@@ -6,6 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import baseURL from './baseurl';
 
 function SearchResultsPage() {
   const location = useLocation();
@@ -48,7 +49,7 @@ function SearchResultsPage() {
     if (query.trim() === '') return;
 
     axios
-      .get(`http://localhost:3000/postadd/get?query=${query}`)
+      .get(`${baseURL}/postadd/get?query=${query}`)
       .then((response) => {
         const searchResults = response.data;
         setAccommodationResults(searchResults);

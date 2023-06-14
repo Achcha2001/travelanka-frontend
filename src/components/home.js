@@ -7,6 +7,7 @@ import './SearchBar.css';
 import './OtherServices.css';
 import './home.css';
 import './Slideshow.css';
+import baseURL from './baseurl';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,13 +18,13 @@ function Home() {
       setErrorMessage('Please enter a city name');
     } else {
       axios
-        .get('http://localhost:3000/postadd/get') // API endpoint 1
+        .get(`${baseURL}/postadd/get`) // API endpoint 1
         .then((response1) => {
           const searchResults1 = Array.isArray(response1.data) ? response1.data : [];
           console.log('Search Results from Endpoint 1:', searchResults1);
   
           axios
-            .get('http://localhost:3000/accommodation/get') // API endpoint 2
+            .get(`${baseURL}/accommodation/get`) // API endpoint 2
             .then((response2) => {
               const searchResults2 = response2.data;
               console.log('Search Results from Endpoint 2:', searchResults2);

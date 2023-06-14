@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import axios from 'axios';
+import baseURL from './baseurl';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:3000/contact/add', formData) // Make sure to use the correct backend route here
+      .post(`${baseURL}/contact/add`, formData) // Make sure to use the correct backend route here
       .then((response) => {
         console.log(response.data); // Display the response from the backend
         // Reset the form

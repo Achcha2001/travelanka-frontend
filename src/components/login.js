@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import baseURL from './baseurl';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function LoginPage() {
 
       // Send login data to the backend for validation
       axios
-        .post('http://localhost:3000/login/add', {
+        .post(`${baseURL}/login/add`, {
           name,
           password,
         })

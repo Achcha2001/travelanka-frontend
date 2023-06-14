@@ -4,7 +4,7 @@ import './postadd.css';
 import { useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-
+import baseURL from './baseurl';
 const firebaseConfig = {
   apiKey: "AIzaSyDJq-SNfcd7XB-jFKrPXhI_ZYmkEJ1Uopw",
   authDomain: "travelanka-7f736.firebaseapp.com",
@@ -104,7 +104,7 @@ function PostaddForm() {
         formData.append('images', uploadedImageUrls.join(','));
 
         axios
-          .post('http://localhost:3000/postadd/add', formData)
+          .post(`${baseURL}/postadd/add`, formData)
           .then((response) => {
             console.log('Response from the backend:', response.data);
           })

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Payment.css';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import axios from 'axios';
+import baseURL from './baseurl';
 
 const Payment = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -39,7 +40,7 @@ const Payment = () => {
     };
 
     // Send a POST request to the backend endpoint
-    axios.post('http://localhost:3000/pay/add', paymentData)
+    axios.post(`${baseURL}/pay/add`, paymentData)
       .then((response) => {
         console.log(response.data); // Handle the response from the backend
         // Perform any necessary actions after successful payment creation

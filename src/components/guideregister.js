@@ -4,6 +4,7 @@ import './guideregister.css';
 import { useNavigate } from 'react-router-dom';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
+import baseURL from './baseurl';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDJq-SNfcd7XB-jFKrPXhI_ZYmkEJ1Uopw",
@@ -103,7 +104,7 @@ formData.append('image', downloadURL);
 
 
 
-      await axios.post('http://localhost:3000/guide/add', formData, {
+      await axios.post(`${baseURL}/guide/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
