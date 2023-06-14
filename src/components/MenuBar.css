@@ -234,8 +234,8 @@ select[name="category"] option {
   /* Example styles: */
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
+  right: 5;
+  left: 5;
   background-color: rgb(20, 3, 145);
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
