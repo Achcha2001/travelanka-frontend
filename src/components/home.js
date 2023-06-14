@@ -64,29 +64,35 @@ function Home() {
   
   return (
     <div className="travelanka">
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search for your destination..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <label>{errorMessage}</label>
-        <select name="category">
-          <option value="select">Select Category</option>
-          <option value="category1">Economical</option>
-          <option value="category2">Deluxe</option>
-          <option value="category3">Super Deluxe</option>
-        </select>
-        <button className="searchbar" onClick={handleSearch}>
-          Search
-        </button>
-        <div className="post">
-          <button>
-            <a href="/postadd">POST YOUR ADD</a>
-          </button>
-        </div>
-      </div>
+     <div className="background-video-container1">
+  <video autoPlay muted loop className="background-video2">
+    <source src="../images/sigiriya-back.mp4" type="video/mp4" />
+  </video>
+  <div className="search-bar">
+    <input
+      type="text"
+      placeholder="Search for your destination..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+    />
+    <label>{errorMessage}</label>
+    <select name="category">
+      <option value="select">Select Category</option>
+      <option value="category1">Economical</option>
+      <option value="category2">Deluxe</option>
+      <option value="category3">Super Deluxe</option>
+    </select>
+    <button className="searchbar" onClick={handleSearch}>
+      Search
+    </button>
+    <div className="post">
+      <button>
+        <a href="/postadd">POST YOUR ADD</a>
+      </button>
+    </div>
+  </div>
+</div>
+
       <div className="description">
         <h2 className="description-header">
           Discover Your Perfect Journey with <span>Travelanka....</span>

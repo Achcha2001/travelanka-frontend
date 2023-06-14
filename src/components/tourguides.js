@@ -9,10 +9,10 @@ function TourGuideList() {
   const [words, setWords] = useState([]);
 
   const paragraph =
-    ' Welcome to the tour guide section of Travelanka, where we pride ourselves on providing an exceptional travel experience. With our unwavering commitment to excellence, we offer you a seamless journey through the mesmerizing landscapes and rich cultural heritage of Sri Lanka. Our highly knowledgeable and passionate tour guides ensure that every aspect of your trip is meticulously planned and executed, leaving no stone unturned. From historical landmarks to hidden gems, we curate immersive itineraries that capture the essence of this enchanting island. Trust us to deliver unparalleled service, where every detail is thoughtfully crafted to exceed your expectations. Embark on an unforgettable adventure with Travelanka and discover the true essence of Sri Lanka.';
+    ' Welcome to the tour guide section of Travelanka, where we pride ourselves on providing an exceptional travel experience. With our unwavering commitment to excellence, we offer you a seamless journey through the mesmerizing landscapes and rich cultural heritage of Sri Lanka. Our highly knowledgeable and passionate tour guides ensure that every aspect of your trip is meticulously planned and executed, leaving no stone unturned. From historical landmarks to hidden gems, we curate immersive itineraries that capture the essence of this enchanting island. Trust us to deliver unparalleled service, where every detail is thoughtfully crafted to exceed your expectations. ';
 
   useEffect(() => {
-    const wordsArray = paragraph.split(' ');
+    const wordsArray = paragraph.split('  ');
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex < wordsArray.length) {
@@ -52,6 +52,10 @@ function TourGuideList() {
       return null;
     }
   }
+  const wordStyle = {
+  
+    wordSpacing: '0.2px', // Adjust the value to reduce the space between words
+  };
 
   return (
     <div>
@@ -61,8 +65,8 @@ function TourGuideList() {
         </video>
         <div className="paragraph1">
           <p id='tour-p1'>
-            {words.map((word, index) => (
-              <span id='white' key={index}>{word} </span>
+            {words.map((word,index) => (
+              <span id='white' style={wordStyle} key={index}>{word} </span>
             ))}
           </p>
         </div>

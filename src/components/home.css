@@ -5,3 +5,30 @@ body{
     background-size: cover;
 
 }
+.background-video2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .background-video2 {
+    position: absolute;
+    top: 14%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .search-bar {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 32%;
+    margin-bottom: 11%;
+    /* Add any additional styling you need for the search bar */
+  }
