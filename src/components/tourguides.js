@@ -20,7 +20,7 @@ function TourGuideList() {
       } else {
         clearInterval(interval);
       }
-    }, 200);
+    }, 150);
 
     return () => {
       clearInterval(interval);

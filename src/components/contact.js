@@ -45,7 +45,7 @@ function ContactForm() {
           value={formData.name}
           onChange={handleChange}
         />
-        <input 
+        <input id='email-1'
           type="email"
           name="email"
           placeholder="Email"

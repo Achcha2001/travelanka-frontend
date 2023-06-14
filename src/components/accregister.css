@@ -52,7 +52,7 @@
     margin-left:10% ;
     border-radius: 10px;
     max-width: 1200px;
-    background-image:linear-gradient(white,gray,rgb(156, 156, 156),white) ;
+    background-image:linear-gradient(white,rgb(202, 202, 202),rgb(156, 156, 156),white) ;
     font-size: 20px;
     letter-spacing: 1px;
     padding: 10px;
@@ -120,7 +120,7 @@ width: 510px;
  button:hover{
    background-color: #2e0de6;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
   .container-a {
     max-width: 480px;
     padding: 15px;
@@ -131,10 +131,25 @@ width: 510px;
   #description {
     width: 100%;
   }
+  .container-a input{
+    width: 450px;
+    height: 18px;
+  }
+  #email1 input{
+ width: 480px;
+  }
+  #district1 {
+    width: 180px;
+  }
+  #accommodation1{
+    width: 180px;
+  }
 
   #para1acc {
-    max-width: 100%;
-    margin: 0;
+    max-width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
   }
 
   .dropdowns,

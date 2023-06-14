@@ -4,9 +4,7 @@ import './App.css';
 // import Axios from "axios";
 
 import MenuBar from './components/menubar';
-//import SearchBar from './components/second';
-//import Description from './components/descriptionhome';
-//import OtherServices from './components/otherhome';
+
 import Footer from './components/footer';
 import AboutUs from './components/aboutus';
 import Home from './components/home';
@@ -51,8 +49,6 @@ function App() {
         
         
         </Routes>
-      
-      
       <Footer/>
      
      

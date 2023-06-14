@@ -42,6 +42,8 @@
     word-spacing: normal;
     padding: 20px;
     color: #ffffff;
+    font-family: cursive;
+    background-color: rgba(0, 0, 0, 0.145);
     font-size: 18px;
     text-align: center;
   }
@@ -84,4 +86,6 @@
     margin-top: 0%;
     margin-bottom: -20px;
   }
-  
+  .tour-p1 p{
+    background: linear-gradient(rgba(128, 128, 128, 0.555));
+  }

@@ -1,43 +1,7 @@
 // import React from 'react';
 // import { useLocation } from 'react-router-dom';
  import './results.css';
-// function SearchResultsPage() {
-//   const location = useLocation();
-//   const searchParams = new URLSearchParams(location.search);
-//   const query = searchParams.get('query');
-//   const category = searchParams.get('category');
-//   const results = searchParams.get('results');
-//   const searchResults = JSON.parse(decodeURIComponent(results));
-//   // Perform your search logic here
-//   // You can query the database or use any other data source
 
-//   // If the query is "colombo" and the category is "category1" (economical), display custom data
-//   // Otherwise, display data from the database
-
-//   return (
-//     <div className="search-results-container">
-//      
-//       <h2>Search Results</h2>
-//       <p>Query: {query}</p>
-
-//       {searchResults.length > 0 ? (
-//         <div>
-//           {searchResults.map((result) => (
-//             <div key={result.id}>
-//               <h3>{result.name}</h3>
-//               <p>Location: {result.location}</p>
-//               <p>Category: {result.category}</p>
-//             </div>
-//           ))}
-//         </div>
-//       ) : (
-//         <p>No results found.</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default SearchResultsPage;
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';

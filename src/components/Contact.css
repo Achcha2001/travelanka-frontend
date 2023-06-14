@@ -68,7 +68,7 @@
     
   }
   
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1350px) {
   .form-container form {
     width: 70%;
   }
@@ -78,6 +78,16 @@
   }#subject{
     min-width: 400px;
     width: 820px;
+  }
+  #email-1{
+    min-width: 400px;
+    width: 820px;
+
+  }
+  #subject{
+    min-width: 400px;
+    width: 820px;
+
   }
 }
 
